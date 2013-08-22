@@ -4,6 +4,7 @@ import yoan.game.framework.modules.audio.Audio;
 import yoan.game.framework.modules.fileio.FileIO;
 import yoan.game.framework.modules.graphics.Graphics;
 import yoan.game.framework.modules.input.Input;
+import yoan.game.framework.modules.network.BlueTooth;
 import yoan.game.framework.modules.screen.Screen;
 
 /**
@@ -35,6 +36,12 @@ public interface Game {
 	 * @return Audio
 	 */
 	public Audio getAudio();
+	
+	/**
+	 * Récupération de la gestion du BlueTooth
+	 * @return Audio
+	 */
+	public BlueTooth getBlueTooth();
 	
 	/**
 	 * Définit l'écran courant
