@@ -39,4 +39,12 @@ public interface BlueTooth {
      * Arret de l'utilisation du BlueTooth
      */
 	public void stop();
+	
+	/**
+	 * Récupération du dernier message lu
+	 */
+	public String getLastMsg();
+	
+	
+	public void write(String msg);
 }
