@@ -1,10 +1,12 @@
 package yoan.game.framework.util.math;
 
+import yoan.game.framework.util.math.shape.RectangleShape;
+
 /**
  * Représentation et gestion d'un rectangle
  * @author yoan
  */
-public class Rectangle {
+public class Rectangle implements RectangleShape {
 	/** Coin inférieur gauche */
 	public final Vector2 lowerLeft;
 	/** largeur du rectangle */
@@ -23,5 +25,21 @@ public class Rectangle {
 		this.lowerLeft= new Vector2(x, y);
 		this.width= width;
 		this.height= height;
+	}
+
+	/**
+	 * @return the width
+	 */
+	@Override
+	public float getWidth(){
+		return width;
+	}
+
+	/**
+	 * @return the height
+	 */
+	@Override
+	public float getHeight(){
+		return height;
 	}
 }
