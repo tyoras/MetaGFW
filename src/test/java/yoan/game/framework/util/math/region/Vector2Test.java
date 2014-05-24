@@ -18,5 +18,19 @@ public class Vector2Test {
 		
 		//then
 		assertThat(tested.x).isEqualTo(5);
+		assertThat(tested.y).isEqualTo(11);
+	}
+	
+	@Test
+	public void sub_should_work() {
+		//given
+		Vector2 tested = new Vector2(2, 3);
+		
+		//when
+		tested.sub(3, 8);
+		
+		//then
+		assertThat(tested.x).isEqualTo(-1);
+		assertThat(tested.y).isEqualTo(-5);
 	}
 }
