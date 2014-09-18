@@ -29,7 +29,31 @@ public class GameObject {
 	 * Donne la position du bas de l'objet
 	 * @return coordonée sur l'axe y
 	 */
-	public float getLowerPosition() {
+	public float getBotPosition() {
 		return position.y - bounds.height / 2;
+	}
+	
+	/**
+	 * Donne la position du haut de l'objet
+	 * @return coordonée sur l'axe y
+	 */
+	public float getTopPosition() {
+		return position.y + bounds.height / 2;
+	}
+	
+	/**
+	 * Donne la position la plus à gauche de l'objet
+	 * @return coordonée sur l'axe x
+	 */
+	public float getMostLeftPosition() {
+		return position.x - bounds.width / 2;
+	}
+	
+	/**
+	 * Donne la position la plus à droite de l'objet
+	 * @return coordonée sur l'axe x
+	 */
+	public float getMostRightPosition() {
+		return position.x + bounds.width / 2;
 	}
 }

@@ -6,6 +6,7 @@ import yoan.game.framework.util.math.shape.RectangleShape;
 
 /**
  * Représente une portion rectangulaire d'une zone plus vaste
+ * x>yv
  * @author yoan
  */
 public class RectangleRegion {
@@ -23,6 +24,10 @@ public class RectangleRegion {
 	 * @param height : hauteur de la région
 	 */
 	public RectangleRegion(RectangleShape area, float x, float y, float width, float height){
+		checkArgument(x >= 0 && x <= area.getWidth());
+		checkArgument(y >= 0 && y <= area.getHeight());
+		checkArgument(width >= 0 && width <= area.getWidth() - x);
+		checkArgument(height >= 0 && height <= area.getHeight() - y, "height = " + height + " et area.height-y = "+(area.getHeight() -y));
 		this.u1= x / area.getWidth();
 		this.v1= y / area.getHeight();
 		this.u2= this.u1 + width / area.getWidth();
