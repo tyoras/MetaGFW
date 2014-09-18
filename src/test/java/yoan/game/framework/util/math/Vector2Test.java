@@ -1,4 +1,4 @@
-package yoan.game.framework.util.math.region;
+package yoan.game.framework.util.math;
 
 import static org.fest.assertions.api.Assertions.assertThat;
 
