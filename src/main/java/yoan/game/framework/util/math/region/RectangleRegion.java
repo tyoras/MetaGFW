@@ -6,7 +6,10 @@ import yoan.game.framework.util.math.shape.RectangleShape;
 
 /**
  * Représente une portion rectangulaire d'une zone plus vaste
- * x>yv
+ *  	   -- > x
+ * 		  |
+ * 		  v
+ * 		  y
  * @author yoan
  */
 public class RectangleRegion implements RectangleShape {
