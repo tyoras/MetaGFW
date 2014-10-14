@@ -30,7 +30,7 @@ public class GameObject {
 	 * @return coordonée sur l'axe y
 	 */
 	public float getBotPosition() {
-		return position.y - bounds.height / 2;
+		return bounds.lowerLeft.y;
 	}
 	
 	/**
@@ -46,7 +46,7 @@ public class GameObject {
 	 * @return coordonée sur l'axe x
 	 */
 	public float getMostLeftPosition() {
-		return position.x - bounds.width / 2;
+		return bounds.lowerLeft.x;
 	}
 	
 	/**
@@ -55,5 +55,23 @@ public class GameObject {
 	 */
 	public float getMostRightPosition() {
 		return position.x + bounds.width / 2;
+	}
+	
+	/**
+	 * Met à jour la largeur
+	 * @param width : nouvelle largeur
+	 */
+	public void setWidth(float width) {
+		bounds.width = width;
+		bounds.lowerLeft.x = position.x - width/2;
+	}
+	
+	/**
+	 * Met à jour la hauteur
+	 * @param height : nouvelle hauteur
+	 */
+	public void setHeight(float height) {
+		bounds.height = height;
+		bounds.lowerLeft.y = position.y - height/2;
 	}
 }

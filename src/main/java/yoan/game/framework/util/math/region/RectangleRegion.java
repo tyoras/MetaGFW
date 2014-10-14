@@ -1,6 +1,6 @@
 package yoan.game.framework.util.math.region;
 
-import static yoan.game.framework.util.Preconditions.*;
+import static yoan.game.framework.util.Preconditions.checkArgument;
 import yoan.game.framework.util.math.shape.RectangleShape;
 
 
@@ -9,11 +9,15 @@ import yoan.game.framework.util.math.shape.RectangleShape;
  * x>yv
  * @author yoan
  */
-public class RectangleRegion {
+public class RectangleRegion implements RectangleShape {
 	/** Coordonées [0-1] du coin supérieur gauche dans la zone */
 	public final float u1, v1;
 	/** Coordonées [0-1] du coin inférieur droit dans la zone */
 	public final float u2, v2;
+	
+	public final float width;
+	
+	public final float height;
 
 	/**
 	 * Constructeur par calcul
@@ -32,6 +36,8 @@ public class RectangleRegion {
 		this.v1= y / area.getHeight();
 		this.u2= this.u1 + width / area.getWidth();
 		this.v2= this.v1 + height / area.getHeight();
+		this.width = width;
+		this.height = height;
 	}
 	
 	/**
@@ -42,13 +48,27 @@ public class RectangleRegion {
 	 * @param v2 : coordonée [0-1] du coin inférieur droit dans la zone
 	 */
 	public RectangleRegion(float u1, float v1, float u2, float v2) {
-		checkArgument(u1 >= 0 && u1 <= 1);
-		checkArgument(v1 >= 0 && v1 <= 1);
-		checkArgument(u2 >= 0 && u2 <= 1);
-		checkArgument(v2 >= 0 && v2 <= 1);
+		checkArgument(u1 >= 0 && u1 <= 1, "u1 should be between [0-1]");
+		checkArgument(v1 >= 0 && v1 <= 1, "v1 should be between [0-1]");
+		checkArgument(u2 >= 0 && u2 <= 1, "u2 should be between [0-1]");
+		checkArgument(v2 >= 0 && v2 <= 1, "v2 should be between [0-1]");
+		checkArgument(u2 >= u1, "u2 >= u1 not verified");
+		checkArgument(v2 >= v1, "v2 >= v1 not verified");
 		this.u1 = u1;
 		this.v1 = v1;
 		this.u2 = u2;
 		this.v2 = v2;
+		width = u2 - u1;
+		height = v2 - v1;
+	}
+
+	@Override
+	public float getWidth(){
+		return width;
+	}
+
+	@Override
+	public float getHeight(){
+		return height;
 	}
 }
